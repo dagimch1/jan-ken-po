@@ -17,22 +17,22 @@
         function playRound(playerSelection, computerSelection) {
             lowerUserSelection = playerSelection.toLowerCase();
             if (lowerUserSelection === 'rock')
-                if (computerSelection === 'rock') return 'It\'s a tie! Try again.';
+                if (computerSelection === 'rock') return 'tie';
             else if (lowerUserSelection === 'rock')
-                if (computerSelection === 'paper') return 'You lose! Paper beats rock.';
+                if (computerSelection === 'paper') return 'lose';
             else if (lowerUserSelection === 'rock')
-                if (computerSelection === 'scissors') return 'You win! Rock beats scissors.';
+                if (computerSelection === 'scissors') return 'win';
             if (lowerUserSelection === 'paper')
-                if (computerSelection === 'rock') return 'You win! Paper beats rock.';
+                if (computerSelection === 'rock') return 'win';
             else if (lowerUserSelection === 'paper')
-                if (computerSelection === 'paper') return 'It\'s a tie! Try again.';
+                if (computerSelection === 'paper') return 'tie';
             else if (lowerUserSelection === 'paper')
-                if (computerSelection === 'scissors') return 'You lose! Scissors beats paper.';
+                if (computerSelection === 'scissors') return 'lose';
             if (lowerUserSelection === 'scissors')
-                if (computerSelection === 'rock') return 'You lose! Rock beats scissors.';
+                if (computerSelection === 'rock') return 'lose';
             else if (lowerUserSelection === 'scissors')
-                if (computerSelection === 'paper') return 'You win! Scissors beats paper.';
-            else return 'It\'s a tie! Try again.';
+                if (computerSelection === 'paper') return 'win';
+            else return 'tie';
         }
 /*      const playerSelection = "scissors";
         const computerSelection = computerPlay();
@@ -46,12 +46,8 @@
                 playerSelection = prompt('Rock, Paper, or Scissors? Best of 5!');
                 let computerSelection = computerPlay();
                 result = playRound(playerSelection, computerSelection);
-                if (result === 'You lose! Paper beats rock.') computerScore++;
-                else if (result === 'You win! Rock beats scissors.') userScore++;
-                else if (result === 'You win! Paper beats rock.') userScore++;
-                else if (result === 'You lose! Scissors beats paper.') computerScore++;
-                else if (result === 'You lose! Rock beats scissors.') computerScore++;
-                else if (result === 'You win! Scissors beats paper.') userScore++;
+                if (result === 'win') userScore++;
+                else if (result === 'lose') computerScore++;
                 console.log(playerSelection);
                 console.log(computerSelection);
                 console.log(userScore);
