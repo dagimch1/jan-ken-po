@@ -22,10 +22,21 @@
                 if (computerSelection === 'paper') return 'You lose! Paper beats rock.';
             else if (lowerUserSelection === 'rock')
                 if (computerSelection === 'scissors') return 'You win! Rock beats scissors.';
+            if (lowerUserSelection === 'paper')
+                if (computerSelection === 'rock') return 'You win! Paper beats rock.';
+            else if (lowerUserSelection === 'paper')
+                if (computerSelection === 'paper') return 'It\'s a tie! Try again.';
+            else if (lowerUserSelection === 'paper')
+                if (computerSelection === 'scissors') return 'You lose! Scissors beats paper.';
+            if (lowerUserSelection === 'scissors')
+                if (computerSelection === 'rock') return 'You lose! Rock beats scissors.';
+            else if (lowerUserSelection === 'scissors')
+                if (computerSelection === 'paper') return 'You win! Scissors beats paper.';
+            else return 'It\'s a tie! Try again.';
         }
-        const playerSelection = "rock";
+        const playerSelection = "scissors";
         const computerSelection = computerPlay();
-        console.log(computerSelection)
+        console.log(computerSelection);
         console.log(playRound(playerSelection, computerSelection));
     </script>
 </body>
