@@ -8,12 +8,14 @@
 </head>
 <body>
     <script>
+
         function computerPlay() {
             num = Math.floor(Math.random() * 3);
             if (num === 0) return 'rock';
             else if (num === 1) return 'paper';
             else return 'scissors';
         }
+
         function playRound(playerSelection, computerSelection) {
             lowerUserSelection = playerSelection.toLowerCase();
             if (lowerUserSelection === 'rock')
@@ -34,10 +36,6 @@
                 if (computerSelection === 'paper') return 'win';
             else return 'tie';
         }
-/*      const playerSelection = "scissors";
-        const computerSelection = computerPlay();
-        console.log(computerSelection);
-        console.log(playRound(playerSelection, computerSelection)); */
 
         function game() {
             userScore = 0;
@@ -46,12 +44,38 @@
                 playerSelection = prompt('Rock, Paper, or Scissors? Best of 5!');
                 let computerSelection = computerPlay();
                 result = playRound(playerSelection, computerSelection);
-                if (result === 'win') userScore++;
-                else if (result === 'lose') computerScore++;
-                console.log(playerSelection);
-                console.log(computerSelection);
-                console.log(userScore);
-                console.log(computerScore);
+                if (result === 'win') {
+                    userScore++;
+                    console.log('**************************');
+                    console.log(`You chose: ${playerSelection}`);
+                    console.log(`Opponent chose: ${computerSelection}`);
+                    console.log(`You won this round!`);
+                    console.log(`Your score: ${userScore}`);
+                    console.log(`Computer's score: ${computerScore}`);
+                    console.log('**************************');
+                    console.log('\n');
+                }
+                else if (result === 'lose') {
+                    computerScore++;
+                    console.log('**************************');
+                    console.log(`You chose: ${playerSelection}`);
+                    console.log(`Opponent chose: ${computerSelection}`);
+                    console.log(`You lost this round!`);
+                    console.log(`Your score: ${userScore}`);
+                    console.log(`Computer's score: ${computerScore}`);
+                    console.log('**************************');
+                    console.log('\n');
+                }
+                else {
+                    console.log('**************************');
+                    console.log(`You chose: ${playerSelection}`);
+                    console.log(`Opponent chose: ${computerSelection}`);
+                    console.log(`It's a tie.`);
+                    console.log(`Your score: ${userScore}`);
+                    console.log(`Computer's score: ${computerScore}`);
+                    console.log('**************************');
+                    console.log('\n');
+                }
             }
             if (userScore > computerScore) return 'You won! Hurray and stuff.';
             else if (userScore === computerScore) return 'A draw. Go again!';
