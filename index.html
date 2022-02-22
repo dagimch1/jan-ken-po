@@ -43,7 +43,7 @@
             for (let i = 0; i < 5; i++) { // Game lasts 5 rounds
                 playerSelection = prompt('Rock, Paper, or Scissors? Best of 5!'); // User input
                 let computerSelection = computerPlay(); // What the computer plays
-                result = playRound(playerSelection, computerSelection); // Result of user victor state
+                let result = playRound(playerSelection, computerSelection); // Result of user victor state
                 if (result === 'win') { // If user won
                     userScore++; // adds 1 to user score
                     console.log('**************************');
