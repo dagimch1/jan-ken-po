@@ -8,17 +8,17 @@
 </head>
 <body>
     <script>
-        
-        function computerPlay() {
-            num = Math.floor(Math.random() * 3);
-            if (num === 0) return 'rock';
+        // Returns randomly 1 of 3 possible values of the game
+        function computerPlay() { 
+            num = Math.floor(Math.random() * 3); // Returns a number of values 0, 1, 2 
+            if (num === 0) return 'rock'; // Returns rock, paper, or scissors depending on number that was initially returned
             else if (num === 1) return 'paper';
             else return 'scissors';
         }
-
-        function playRound(playerSelection, computerSelection) {
-            lowerUserSelection = playerSelection.toLowerCase();
-            if (lowerUserSelection === 'rock')
+        // Returns string that indicates win/lose/draw state of the user which is important for game function
+        function playRound(playerSelection, computerSelection) { 
+            lowerUserSelection = playerSelection.toLowerCase(); // for uniformality
+            if (lowerUserSelection === 'rock') 
                 if (computerSelection === 'rock') return 'tie';
             else if (lowerUserSelection === 'rock')
                 if (computerSelection === 'paper') return 'lose';
@@ -36,16 +36,16 @@
                 if (computerSelection === 'paper') return 'win';
             else return 'tie';
         }
-
+        // Does multiple things
         function game() {
-            userScore = 0;
-            computerScore = 0;
-            for (let i = 0; i < 5; i++) {
-                playerSelection = prompt('Rock, Paper, or Scissors? Best of 5!');
-                let computerSelection = computerPlay();
-                result = playRound(playerSelection, computerSelection);
-                if (result === 'win') {
-                    userScore++;
+            userScore = 0; // keeps track of user score
+            computerScore = 0; // keeps track of computer score
+            for (let i = 0; i < 5; i++) { // Game lasts 5 rounds
+                playerSelection = prompt('Rock, Paper, or Scissors? Best of 5!'); // User input
+                let computerSelection = computerPlay(); // What the computer plays
+                result = playRound(playerSelection, computerSelection); // Result of user victor state
+                if (result === 'win') { // If user won
+                    userScore++; // adds 1 to user score
                     console.log('**************************');
                     console.log(`You chose: ${playerSelection}`);
                     console.log(`Opponent chose: ${computerSelection}`);
@@ -53,10 +53,10 @@
                     console.log(`Your score: ${userScore}`);
                     console.log(`Computer's score: ${computerScore}`);
                     console.log('**************************');
-                    console.log('\n');
+                    console.log('\n'); // line break
                 }
-                else if (result === 'lose') {
-                    computerScore++;
+                else if (result === 'lose') { // if user lost
+                    computerScore++; // adds 1 to computer score
                     console.log('**************************');
                     console.log(`You chose: ${playerSelection}`);
                     console.log(`Opponent chose: ${computerSelection}`);
@@ -66,7 +66,7 @@
                     console.log('**************************');
                     console.log('\n');
                 }
-                else {
+                else { // if the round was a tie
                     console.log('**************************');
                     console.log(`You chose: ${playerSelection}`);
                     console.log(`Opponent chose: ${computerSelection}`);
@@ -77,11 +77,12 @@
                     console.log('\n');
                 }
             }
+            // After 5 rounds determine the winner by comparing scores
             if (userScore > computerScore) console.log('You won! Hurray and stuff.');
             else if (userScore === computerScore) console.log('A draw. Go again!'); 
             else console.log('You lost. Better luck next time?');  
         }
-        game();
+        game(); // call game function when page loads
     </script>
 </body>
 </html>
